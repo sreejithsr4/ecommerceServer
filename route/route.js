@@ -1,0 +1,26 @@
+const express=require('express')
+const {login,addProduct,getAllProduct,editproduct,deleteproduct,
+    getproduct, userregister,ulogin, addCart,cartcount, getcart, totalprice, quantityincremenet, quantitydecremenet, remove, addwishlist, getwishlist, wishremove, userdata, deleteuser}=require('../controller/logic')
+const router=new express.Router()
+router.post('/ecommerce/admin/login',login)
+router.post('/ecommerce/admin/add-product',addProduct)
+router.get('/ecommerce/admin/all-product',getAllProduct)
+router.put(`/ecommerce/admin/edit-product/:id`,editproduct)
+router.get(`/ecommerce/admin/get-product/:id`,getproduct)
+router.delete(`/ecommerce/admin/product-delete/:id`,deleteproduct)
+router.post('/ecommerce/user/signup',userregister)
+router.post('/ecommerce/user/login',ulogin)
+router.post('/ecommerce/user/add-cart',addCart)
+router.get('/ecommerce/cart-count/:userid',cartcount)
+router.get('/ecommerce/cart-list/:userid',getcart)
+router.get('/ecommerce/cart/fullprice/:userid',totalprice)
+router.get('/ecommerce/cart/increment/:id',quantityincremenet)
+router.get('/ecommerce/cart/decrement/:id',quantitydecremenet)
+router.delete('/ecommerce/cart/delete/:id',remove)
+router.post('/ecommerce/wishlist/add',addwishlist)
+router.get('/ecommerce/wishlist/get/:userid',getwishlist)
+router.delete('/ecommerce/wishlist/remove/:pid',wishremove)
+router.get('/userdata',userdata),
+router.delete('/admin/user/delete/:id',deleteuser)
+
+module.exports=router
